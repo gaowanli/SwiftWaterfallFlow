@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t9k-PN-QK2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="All-Jw-3Su">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t9k-PN-QK2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Boa-hP-YK0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LaY-kV-j5t" kind="relationship" relationship="rootViewController" id="PBn-5m-EKO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Xb-kh-xRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="1048"/>
+        </scene>
+        <!--瀑布流 Swift-->
+        <scene sceneID="ofu-2R-uF8">
+            <objects>
+                <collectionViewController id="LaY-kV-j5t" customClass="CollectionViewController" customModule="WaterfallFlow" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="agY-YL-nZR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mJI-uB-KYn" customClass="WaterfallFlowLayout" customModule="WaterfallFlow" customModuleProvider="target">
+                            <size key="itemSize" width="168" height="197"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="waterfallflowCell" id="9bj-Mx-2Lh" customClass="Cell" customModule="WaterfallFlow" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="168" height="197"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDL-y1-ZBl">
+                                            <rect key="frame" x="63" y="88" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="iLg-BZ-sdm"/>
+                                                <constraint firstAttribute="height" constant="21" id="iyn-Vb-jwa"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="lDL-y1-ZBl" secondAttribute="centerX" id="3Bc-W7-GRC"/>
+                                    <constraint firstAttribute="centerY" secondItem="lDL-y1-ZBl" secondAttribute="centerY" id="XZE-8W-b6T"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="indexLabel" destination="lDL-y1-ZBl" id="RTo-TC-8b8"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="LaY-kV-j5t" id="evb-Ua-acR"/>
+                            <outlet property="delegate" destination="LaY-kV-j5t" id="OGp-G6-Yj7"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="瀑布流 Swift" id="Iyo-eI-ffy"/>
+                    <connections>
+                        <outlet property="layout" destination="mJI-uB-KYn" id="buD-MK-r9V"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c15-d9-ASX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="1048"/>
+        </scene>
+    </scenes>
+</document>
