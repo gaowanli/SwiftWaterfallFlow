@@ -26,6 +26,8 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
     private var colItemCounts: [Int]?
     /// 列高数组
     private var colItemHeights: [CGFloat]?
+    /// 最高的列高
+    private var colItemsMaxHeight: CGFloat = 0
     
     override func prepareLayout() {
         super.prepareLayout()
@@ -33,13 +35,18 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
         var itemWidth = (screenWidth - (CGFloat(rowItemNum - 1) * minimumInteritemSpacing) - sectionInset.left - sectionInset.right) / CGFloat(rowItemNum)
         // 计算所有item的布局属性
         calcAllItemLayoutAttributeByItemWidth(itemWidth)
-        // 计算并设置itemSize
-        calcAndSetItemSize(itemWidth)
+        
+        findMaxHeightColHeight()
     }
     
     /// 返回所有item的布局属性
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
         return layoutAttributes
+    }
+    
+    /// 设置collectionView的滚动范围
+    override func collectionViewContentSize() -> CGSize {
+        return CGSizeMake(CGRectGetWidth(UIScreen.mainScreen().bounds), colItemsMaxHeight)
     }
 }
 
@@ -112,21 +119,16 @@ extension WaterfallFlowLayout {
     }
     
     /**
-    计算并设置itemSize
+    找出高度最高的列高
     */
-    private func calcAndSetItemSize(itemWidth: CGFloat) {
+    private func findMaxHeightColHeight() {
         var maxHeight: CGFloat = colItemHeights![0]
-        var index = 0
         for i in 0..<rowItemNum {
             var h = colItemHeights![i]
             if maxHeight < h {
                 maxHeight = h
-                index = i
             }
         }
-        // 高度最高行的item个数
-        var colItemCount = colItemCounts![index]
-        var h = (maxHeight - sectionInset.top - CGFloat((colItemCount - 1)) * minimumLineSpacing) / CGFloat(colItemCount)
-        self.itemSize = CGSizeMake(itemWidth, h)
+        colItemsMaxHeight = maxHeight - minimumInteritemSpacing
     }
 }

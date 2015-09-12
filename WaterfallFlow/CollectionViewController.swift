@@ -28,6 +28,7 @@ class CollectionViewController: UICollectionViewController {
         
         self.layout.dataSource = dataSource
         self.layout.rowItemNum = 3
+        self.collectionView?.contentSize = CGSizeMake(0, 10000)
         self.collectionView?.reloadData()
     }
     
@@ -42,7 +43,6 @@ class CollectionViewController: UICollectionViewController {
             cell.backgroundColor = item.backgroundColor
         }
         cell.indexLabel.text = "\(indexPath.item)"
-
         return cell
     }
 }
