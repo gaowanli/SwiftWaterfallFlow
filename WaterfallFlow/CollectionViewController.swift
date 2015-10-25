@@ -28,8 +28,6 @@ class CollectionViewController: UICollectionViewController {
         
         self.layout.dataSource = dataSource
         self.layout.rowItemNum = 3
-        self.collectionView?.contentSize = CGSizeMake(0, 10000)
-        self.collectionView?.reloadData()
     }
     
     // MARK: UICollectionViewDataSource
