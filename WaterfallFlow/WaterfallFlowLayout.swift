@@ -15,7 +15,6 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
     var rowItemNum: Int = 0 {
         didSet {
             colItemHeights = [CGFloat](count: rowItemNum, repeatedValue: sectionInset.top)
-            colItemCounts = [Int](count: rowItemNum, repeatedValue: 0)
         }
     }
     /// 布局属性数组
@@ -82,7 +81,6 @@ extension WaterfallFlowLayout {
         
         // 将item的高度添加到数组进行记录
         colItemHeights![colAndHeight.col] += (h + minimumLineSpacing)
-        colItemCounts![colAndHeight.col]++
         
         // 设置frame
         attribute.frame = CGRectMake(x, y, itemWidth, h)
