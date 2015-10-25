@@ -11,21 +11,10 @@
 		ADD450E91BA071900065F494 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADD450E71BA071900065F494 /* Main.storyboard */; };
 		ADD450EB1BA071900065F494 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADD450EA1BA071900065F494 /* Images.xcassets */; };
 		ADD450EE1BA071900065F494 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADD450EC1BA071900065F494 /* LaunchScreen.xib */; };
-		ADD450FA1BA071900065F494 /* WaterfallFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD450F91BA071900065F494 /* WaterfallFlowTests.swift */; };
 		ADD451041BA072DD0065F494 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD451031BA072DD0065F494 /* CollectionViewController.swift */; };
 		ADD451081BA074260065F494 /* WaterfallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD451071BA074260065F494 /* WaterfallFlowLayout.swift */; };
 		ADD4510A1BA075D70065F494 /* WaterfallFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD451091BA075D70065F494 /* WaterfallFlowItem.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		ADD450F41BA071900065F494 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ADD450D61BA071900065F494 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ADD450DD1BA071900065F494;
-			remoteInfo = WaterfallFlow;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		ADD450DE1BA071900065F494 /* WaterfallFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterfallFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,9 +23,6 @@
 		ADD450E81BA071900065F494 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADD450EA1BA071900065F494 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ADD450ED1BA071900065F494 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		ADD450F31BA071900065F494 /* WaterfallFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaterfallFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADD450F81BA071900065F494 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADD450F91BA071900065F494 /* WaterfallFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallFlowTests.swift; sourceTree = "<group>"; };
 		ADD451031BA072DD0065F494 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		ADD451071BA074260065F494 /* WaterfallFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallFlowLayout.swift; sourceTree = "<group>"; };
 		ADD451091BA075D70065F494 /* WaterfallFlowItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallFlowItem.swift; sourceTree = "<group>"; };
@@ -50,13 +36,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ADD450F01BA071900065F494 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -64,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				ADD450E01BA071900065F494 /* WaterfallFlow */,
-				ADD450F61BA071900065F494 /* WaterfallFlowTests */,
 				ADD450DF1BA071900065F494 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				ADD450DE1BA071900065F494 /* WaterfallFlow.app */,
-				ADD450F31BA071900065F494 /* WaterfallFlowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,23 +78,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ADD450F61BA071900065F494 /* WaterfallFlowTests */ = {
-			isa = PBXGroup;
-			children = (
-				ADD450F91BA071900065F494 /* WaterfallFlowTests.swift */,
-				ADD450F71BA071900065F494 /* Supporting Files */,
-			);
-			path = WaterfallFlowTests;
-			sourceTree = "<group>";
-		};
-		ADD450F71BA071900065F494 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ADD450F81BA071900065F494 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,39 +98,18 @@
 			productReference = ADD450DE1BA071900065F494 /* WaterfallFlow.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ADD450F21BA071900065F494 /* WaterfallFlowTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ADD451001BA071900065F494 /* Build configuration list for PBXNativeTarget "WaterfallFlowTests" */;
-			buildPhases = (
-				ADD450EF1BA071900065F494 /* Sources */,
-				ADD450F01BA071900065F494 /* Frameworks */,
-				ADD450F11BA071900065F494 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ADD450F51BA071900065F494 /* PBXTargetDependency */,
-			);
-			name = WaterfallFlowTests;
-			productName = WaterfallFlowTests;
-			productReference = ADD450F31BA071900065F494 /* WaterfallFlowTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		ADD450D61BA071900065F494 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "高万里";
 				TargetAttributes = {
 					ADD450DD1BA071900065F494 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					ADD450F21BA071900065F494 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = ADD450DD1BA071900065F494;
 					};
 				};
 			};
@@ -188,7 +127,6 @@
 			projectRoot = "";
 			targets = (
 				ADD450DD1BA071900065F494 /* WaterfallFlow */,
-				ADD450F21BA071900065F494 /* WaterfallFlowTests */,
 			);
 		};
 /* End PBXProject section */
@@ -201,13 +139,6 @@
 				ADD450E91BA071900065F494 /* Main.storyboard in Resources */,
 				ADD450EE1BA071900065F494 /* LaunchScreen.xib in Resources */,
 				ADD450EB1BA071900065F494 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ADD450F11BA071900065F494 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,23 +156,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ADD450EF1BA071900065F494 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ADD450FA1BA071900065F494 /* WaterfallFlowTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ADD450F51BA071900065F494 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ADD450DD1BA071900065F494 /* WaterfallFlow */;
-			targetProxy = ADD450F41BA071900065F494 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ADD450E71BA071900065F494 /* Main.storyboard */ = {
@@ -284,6 +199,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -350,6 +266,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WaterfallFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.gaowanli.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -360,41 +277,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WaterfallFlow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.gaowanli.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		ADD451011BA071900065F494 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WaterfallFlowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaterfallFlow.app/WaterfallFlow";
-			};
-			name = Debug;
-		};
-		ADD451021BA071900065F494 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WaterfallFlowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WaterfallFlow.app/WaterfallFlow";
 			};
 			name = Release;
 		};
@@ -415,15 +299,6 @@
 			buildConfigurations = (
 				ADD450FE1BA071900065F494 /* Debug */,
 				ADD450FF1BA071900065F494 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ADD451001BA071900065F494 /* Build configuration list for PBXNativeTarget "WaterfallFlowTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ADD451011BA071900065F494 /* Debug */,
-				ADD451021BA071900065F494 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

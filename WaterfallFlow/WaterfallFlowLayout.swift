@@ -31,8 +31,8 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
     
     override func prepareLayout() {
         super.prepareLayout()
-        var screenWidth = CGRectGetWidth(UIScreen.mainScreen().bounds)
-        var itemWidth = (screenWidth - (CGFloat(rowItemNum - 1) * minimumInteritemSpacing) - sectionInset.left - sectionInset.right) / CGFloat(rowItemNum)
+        let screenWidth = CGRectGetWidth(UIScreen.mainScreen().bounds)
+        let itemWidth = (screenWidth - (CGFloat(rowItemNum - 1) * minimumInteritemSpacing) - sectionInset.left - sectionInset.right) / CGFloat(rowItemNum)
         // 计算所有item的布局属性
         calcAllItemLayoutAttributeByItemWidth(itemWidth)
         
@@ -40,7 +40,7 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
     }
     
     /// 返回所有item的布局属性
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return layoutAttributes
     }
     
@@ -60,7 +60,7 @@ extension WaterfallFlowLayout {
         }
         
         var index = 0
-        for item in dataSource! {
+        for _ in dataSource! {
             let attribute = calcItemLayoutAttribute(index++, itemWidth: itemWidth)
             layoutAttributes?.append(attribute)
         }
@@ -71,14 +71,14 @@ extension WaterfallFlowLayout {
     */
     private func calcItemLayoutAttribute(index: Int, itemWidth: CGFloat) -> UICollectionViewLayoutAttributes {
         // 创建布局属性
-        var attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: NSIndexPath(forItem: index, inSection: 0))
+        let attribute = UICollectionViewLayoutAttributes(forCellWithIndexPath: NSIndexPath(forItem: index, inSection: 0))
         
         // 高度最小的列号和列高
-        var colAndHeight = findMinHeightColIndexAndHeight()
+        let colAndHeight = findMinHeightColIndexAndHeight()
         
-        var x = sectionInset.left + CGFloat(colAndHeight.col) * (itemWidth + minimumInteritemSpacing)
-        var y = colAndHeight.height
-        var h = calcItemHeight(index, width: itemWidth)
+        let x = sectionInset.left + CGFloat(colAndHeight.col) * (itemWidth + minimumInteritemSpacing)
+        let y = colAndHeight.height
+        let h = calcItemHeight(index, width: itemWidth)
         
         // 将item的高度添加到数组进行记录
         colItemHeights![colAndHeight.col] += (h + minimumLineSpacing)
@@ -109,7 +109,7 @@ extension WaterfallFlowLayout {
         var minHeight: CGFloat = colItemHeights![0]
         var index = 0
         for i in 0..<rowItemNum {
-            var h = colItemHeights![i]
+            let h = colItemHeights![i]
             if minHeight > h {
                 minHeight = h
                 index = i
@@ -124,7 +124,7 @@ extension WaterfallFlowLayout {
     private func findMaxHeightColHeight() {
         var maxHeight: CGFloat = colItemHeights![0]
         for i in 0..<rowItemNum {
-            var h = colItemHeights![i]
+            let h = colItemHeights![i]
             if maxHeight < h {
                 maxHeight = h
             }
