@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 瀑布流item对象
 class WaterfallFlowItem: NSObject {
     var width: CGFloat
     var height: CGFloat

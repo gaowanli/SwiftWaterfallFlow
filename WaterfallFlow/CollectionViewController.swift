@@ -15,31 +15,35 @@ class CollectionViewController: UICollectionViewController {
     /// 布局对象
     @IBOutlet weak var layout: WaterfallFlowLayout!
     /// 数据源对象
-    private lazy var dataSource: [WaterfallFlowItem]? = {
-        var arrayM = [WaterfallFlowItem]()
-        for i in 0..<100 {
-            arrayM.append(WaterfallFlowItem())
-        }
-        return arrayM
-        }()
+    private var dataSource: [WaterfallFlowItem] = [WaterfallFlowItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refreshDataSource")
+        
+        refreshDataSource()
+    }
+    
+    /// 刷新数据源
+    func refreshDataSource() {
+        dataSource.removeAll()
+        for _ in 0..<40 {
+            dataSource.append(WaterfallFlowItem())
+        }
         
         self.layout.dataSource = dataSource
         self.layout.rowItemNum = 3
+        self.collectionView?.reloadData()
     }
     
     // MARK: UICollectionViewDataSource
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource!.count
+        return dataSource.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! Cell
-        if let item = dataSource?[indexPath.row] {
-            cell.backgroundColor = item.backgroundColor
-        }
+        cell.backgroundColor = dataSource[indexPath.row].backgroundColor
         cell.indexLabel.text = "\(indexPath.item)"
         return cell
     }

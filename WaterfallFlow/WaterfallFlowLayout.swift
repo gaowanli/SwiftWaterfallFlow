@@ -14,19 +14,15 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
     /// 一行显示的item个数
     var rowItemNum: Int = 0 {
         didSet {
-            colItemHeights = [CGFloat](count: rowItemNum, repeatedValue: sectionInset.top)
+            colItemHeightValues = [CGFloat](count: rowItemNum, repeatedValue: sectionInset.top)
         }
     }
     /// 布局属性数组
     private lazy var layoutAttributes: [UICollectionViewLayoutAttributes]? = {
         return [UICollectionViewLayoutAttributes]()
         }()
-    /// 列中item个数数组
-    private var colItemCounts: [Int]?
     /// 列高数组
-    private var colItemHeights: [CGFloat]?
-    /// 最高的列高
-    private var colItemsMaxHeight: CGFloat = 0
+    private var colItemHeightValues: [CGFloat]?
     
     override func prepareLayout() {
         super.prepareLayout()
@@ -34,8 +30,6 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
         let itemWidth = (screenWidth - (CGFloat(rowItemNum - 1) * minimumInteritemSpacing) - sectionInset.left - sectionInset.right) / CGFloat(rowItemNum)
         // 计算所有item的布局属性
         calcAllItemLayoutAttributeByItemWidth(itemWidth)
-        
-        findMaxHeightColHeight()
     }
     
     /// 返回所有item的布局属性
@@ -45,7 +39,8 @@ class WaterfallFlowLayout: UICollectionViewFlowLayout {
     
     /// 设置collectionView的滚动范围
     override func collectionViewContentSize() -> CGSize {
-        return CGSizeMake(CGRectGetWidth(UIScreen.mainScreen().bounds), colItemsMaxHeight)
+        let y = (colItemHeightValues?.sort().last)! - minimumInteritemSpacing;
+        return CGSizeMake(CGRectGetWidth(UIScreen.mainScreen().bounds), y)
     }
 }
 
@@ -80,7 +75,7 @@ extension WaterfallFlowLayout {
         let h = calcItemHeight(index, width: itemWidth)
         
         // 将item的高度添加到数组进行记录
-        colItemHeights![colAndHeight.col] += (h + minimumLineSpacing)
+        colItemHeightValues![colAndHeight.col] += (h + minimumLineSpacing)
         
         // 设置frame
         attribute.frame = CGRectMake(x, y, itemWidth, h)
@@ -104,29 +99,15 @@ extension WaterfallFlowLayout {
     - returns: 列号和列高
     */
     private func findMinHeightColIndexAndHeight() -> (col: Int, height: CGFloat) {
-        var minHeight: CGFloat = colItemHeights![0]
+        var minHeight: CGFloat = colItemHeightValues![0]
         var index = 0
         for i in 0..<rowItemNum {
-            let h = colItemHeights![i]
+            let h = colItemHeightValues![i]
             if minHeight > h {
                 minHeight = h
                 index = i
             }
         }
         return (index, minHeight)
-    }
-    
-    /**
-    找出高度最高的列高
-    */
-    private func findMaxHeightColHeight() {
-        var maxHeight: CGFloat = colItemHeights![0]
-        for i in 0..<rowItemNum {
-            let h = colItemHeights![i]
-            if maxHeight < h {
-                maxHeight = h
-            }
-        }
-        colItemsMaxHeight = maxHeight - minimumInteritemSpacing
     }
 }
