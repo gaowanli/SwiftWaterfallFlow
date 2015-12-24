@@ -19,7 +19,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refreshDataSource")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refreshDataSource")
         
         refreshDataSource()
     }
@@ -31,9 +31,9 @@ class CollectionViewController: UICollectionViewController {
             dataSource.append(WaterfallFlowItem())
         }
         
-        self.layout.dataSource = dataSource
-        self.layout.rowItemNum = 3
-        self.collectionView?.reloadData()
+        layout.dataSource = dataSource
+        layout.rowItemNum = 3
+        collectionView?.reloadData()
     }
     
     // MARK: UICollectionViewDataSource
