@@ -90,7 +90,7 @@ extension WaterfallFlowLayout {
     private func calcItemHeight(index: Int, width: CGFloat) -> CGFloat {
         let h = dataSource![index].height
         let w = dataSource![index].width
-        return w / h * width
+        return h / w * width
     }
     
     /**
